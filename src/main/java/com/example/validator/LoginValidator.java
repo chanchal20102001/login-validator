@@ -8,6 +8,6 @@ public class LoginValidator {
             return false;
         }
 
-        return username.equals("admin") && password.equals("secret");
+        return "admin".equals(username) && "secret".equals(password);
     }
 }
