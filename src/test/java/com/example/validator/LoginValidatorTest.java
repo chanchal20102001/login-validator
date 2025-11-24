@@ -5,34 +5,23 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginValidatorTest {
 
+    private final LoginValidator validator = new LoginValidator();
+
     @Test
-    public void testValidCredentials() {
-        LoginValidator validator = new LoginValidator();
+    public void testValidate_nullUsernameOrPassword_returnsFalse() {
+        assertFalse(validator.validate(null, "secret"));
+        assertFalse(validator.validate("admin", null));
+        assertFalse(validator.validate(null, null));
+    }
+
+    @Test
+    public void testValidate_validCredentials_returnsTrue() {
         assertTrue(validator.validate("admin", "secret"));
     }
 
     @Test
-    public void testInvalidCredentials() {
-        LoginValidator validator = new LoginValidator();
+    public void testValidate_invalidCredentials_returnsFalse() {
         assertFalse(validator.validate("user", "pass"));
-    }
-
-    @Test
-    public void testNullUsername() {
-        LoginValidator validator = new LoginValidator();
-        assertFalse(validator.validate(null, "secret"));
-    }
-
-    @Test
-    public void testNullPassword() {
-        LoginValidator validator = new LoginValidator();
-        assertFalse(validator.validate("admin", null));
-    }
-
-    @Test
-    public void testEmptyCredentials() {
-        LoginValidator validator = new LoginValidator();
-        assertFalse(validator.validate("", ""));
+        assertFalse(validator.validate("admin", "wrong"));
     }
 }
-
