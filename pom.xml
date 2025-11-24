@@ -8,6 +8,7 @@
   <artifactId>login-validator</artifactId>
   <version>1.0.0</version>
   <name>Login Validator</name>
+  <packaging>jar</packaging>
 
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
@@ -50,5 +51,4 @@
       </plugin>
     </plugins>
   </build>
-          <packaging>jar</packaging>
 </project>
