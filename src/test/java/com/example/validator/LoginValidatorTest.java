@@ -35,3 +35,4 @@ public class LoginValidatorTest {
         assertFalse(validator.validate("", ""));
     }
 }
+
